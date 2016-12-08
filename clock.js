@@ -28,12 +28,28 @@ function secondsToMMSS(time) {
 
 
 function countdown(){
-	
+	var MMSS;
+	var clock;
+	var minutesRemaining = 0;
+	var secondsRemaining = 0;
+
+	MMSS = secondsToMMSS(countdownTime);
+
+	minutesRemaining = MMSS[0];
+	secondsRemaining = MMSS[1];
+	colon = " : "
+
+	clock = minutesRemaining + colon + secondsRemaining;
+
 	timerHasStarted = 1;
 
-	document.getElementById("clock").innerHTML = countdownTime;
+	document.getElementById("clock").innerHTML = clock;
 
 	countdownTime -= 1;
+
+	
+
+
 
 	if(countdownTime < 0){
 		clearInterval(timerId);
@@ -93,23 +109,4 @@ function startBreak() {
 
 	countdownTime = breakTime;
 	timerId = setInterval(countdown, 1000);
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
