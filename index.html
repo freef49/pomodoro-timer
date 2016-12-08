@@ -4,7 +4,13 @@
 	<title>Pomodoro Timer</title>
 </head>
 <body>
-	<div id="clock"></div>
+	<div id="clock">0</div>
+	<input type="text" id="sessionLength">
+	<input type="text" id="breakLength">
+	<button onclick="startCountDown()">Start</button>
+	<button onclick="pauseCountDown()">Pause</button>
+	<button onclick="stopCountDown()">Stop</button>
+
 	<script type="text/javascript" src="clock.js"></script>
 </body>
 </html>
