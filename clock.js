@@ -1,7 +1,7 @@
 // Global variables
 
 var clock;
-var currentTime;
+var currentTime = 0;
 var sessionTime = 1;
 var breakTime;
 var countdownTime;
@@ -27,35 +27,35 @@ function secondsToMMSS(time) {
 }
 
 function countdown(){
+
+	
+	document.getElementById("clock").innerHTML = countdownTime;
+
 	countdownTime -= 1;
-	currentTime += 1;
-	console.log(countdownTime);
-}
 
-function startCountDown() {
-	clock = document.getElementById("clock");
-
-	currentTime = millisecondsToSeconds(performance.now());
-
-	countdownTime = minutesToSeconds(sessionTime);
-
-	console.log(currentTime);
-	
-	while ( countdownTime > 0){
-		if (millisecondsToSeconds(performance.now()) == currentTime + 1){
-		
-		countdownTime -= 1;
-		currentTime += 1;
-		console.log(countdownTime);
-		} 
+	if(countdownTime === 0){
+		clearInterval(timerId)
 	}
-	
 
-	console.log("something");
+
 }
-
 // Programme logic
 
-startCountDown();
+// countdownTime = minutesToSeconds(sessionTime)
+
+countdownTime = 5;
+
+var timerId = setInterval(countdown, 1000);
+
+
+
+
+
+
+
+
+
+
+
 
 
