@@ -3,15 +3,18 @@ var timerId;
 var countdownTime = 0;
 var timerHasLooped = 0;
 var timerHasStarted = 0;
+var timerHasPaused = 0;
 
-
-// Functions
 function millisecondsToSeconds(time) {
 	return Math.floor(time/1000);
 }
 
 function minutesToSeconds(time) {
 	return time*60;
+}
+
+function secondsToMinutes(time) {
+	return time/60;
 }
 
 function secondsToMMSS(time) {
@@ -25,8 +28,6 @@ function secondsToMMSS(time) {
 	return [minutesRemaining, secondsRemaining];
 }
 
-
-
 function countdown(){
 	var MMSS;
 	var clock;
@@ -39,6 +40,14 @@ function countdown(){
 	secondsRemaining = MMSS[1];
 	colon = " : "
 
+	if (minutesRemaining < 10){
+		minutesRemaining = "0" + minutesRemaining;
+	}
+
+	if (secondsRemaining < 10) {
+		secondsRemaining = "0" + secondsRemaining;
+	}
+
 	clock = minutesRemaining + colon + secondsRemaining;
 
 	timerHasStarted = 1;
@@ -46,10 +55,6 @@ function countdown(){
 	document.getElementById("clock").innerHTML = clock;
 
 	countdownTime -= 1;
-
-	
-
-
 
 	if(countdownTime < 0){
 		clearInterval(timerId);
@@ -70,8 +75,9 @@ function startCountDown(){
 	if (timerHasStarted === 0){
 		startCountDownClock();
 		}
-	else{
+	else if(timerHasPaused === 1){
 		timerId = setInterval(countdown, 1000);
+		timerHasPaused = 0;
 	}
 }
 
@@ -79,29 +85,35 @@ function startCountDownClock(){
 		var sessionTime = getSessionLength();
 		countdownTime = sessionTime;
 		timerId = setInterval(countdown, 1000);
-
 }
 
 function getSessionLength() {
 	var sessionTime = 0;
 	var sessionLength = document.getElementById("sessionLength").value;
-	return sessionTime = parseInt(sessionLength);
+	sessionTime = parseInt(sessionLength);	 
+	return sessionTime = minutesToSeconds(sessionTime);
 }
 
 function getbreakLength() {
 	var breakTime = 0;
 	var breakLength = document.getElementById("breakLength").value;
-	return breakTime = parseInt(breakLength);
+	breakTime = parseInt(breakLength);
+	return breakTime = minutesToSeconds(breakTime);
 }
+
 function stopCountDown(){
 	clearInterval(timerId);
-	document.getElementById("clock").innerHTML = "0";
+	document.getElementById("clock").innerHTML = "00 : 00";
 	timerHasStarted = 0;
 }
 
 function pauseCountDown() {
-	clearInterval(timerId);
+	if (timerHasPaused === 0){
+		clearInterval(timerId);
+		timerHasPaused = 1;
+	}
 }
+
 function startBreak() {
 	var breakTime = 0;
 
