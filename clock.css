@@ -1,0 +1,38 @@
+
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Share+Tech+Mono');
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Clock */
+
+.pomodoroClock{
+	font-family: 'Lato', sans-serif;
+}
+
+#clock{
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 30vw;
+    margin: 0 auto;
+    width: 80vw;
+}
+.pomodoroButtons{
+	position: fixed;
+	bottom: 0;
+    width: 100vw;
+}
+.pomodoroButtons > button{
+    width: 33.33333333333333%;
+    background: none;
+    background-color: yellowgreen;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    outline:none;
+    margin: 0 -1.5px;
+}

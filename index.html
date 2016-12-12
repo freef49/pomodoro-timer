@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Pomodoro Timer</title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="clock.css">
+    <title>Pomodoro Timer</title>
 </head>
+
 <body>
-	<div id="clock">00 : 00</div>
-	<p>
-		Session Length: <input type="text" id="sessionLength"> minutes
-	</p> 
-	<p>
-		Break Length: <input type="text" id="breakLength"> minutes
-	</p>
-	<div>
-		<button onclick="startCountDown()">Start</button>
-		<button onclick="pauseCountDown()">Pause</button>
-		<button onclick="stopCountDown()">Stop</button>
-	</div>
-	<script type="text/javascript" src="clock.js"></script>
+    <div class="pomodoroClock">
+        <div id="clock">00:00</div>
+        <p class="pomodoroLengths">
+            Session :
+            <input type="text" id="sessionLength"> minutes
+        </p>
+        <p class="pomodoroLengths">
+            Break :
+            <input type="text" id="breakLength"> minutes
+        </p>
+        <script type="text/javascript" src="clock.js"></script>
+    </div>
+    <div class="pomodoroButtons">
+        <button onclick="startCountDown()"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button onclick="pauseCountDown()"><i class="fa fa-pause" aria-hidden="true"></i></button>
+        <button onclick="stopCountDown()"><i class="fa fa-stop" aria-hidden="true"></i></button>
+    </div>
 </body>
+
 </html>
