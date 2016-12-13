@@ -31,6 +31,7 @@ function secondsToMMSS(time) {
 function startCountDown() {
     if (timerHasStarted === 0) {
         startCountDownClock();
+        timerHasStarted = 1;
     } else if (timerHasPaused === 1) {
         timerId = setInterval(countdown, 1000);
         timerHasPaused = 0;
