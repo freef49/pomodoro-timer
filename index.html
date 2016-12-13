@@ -14,11 +14,11 @@
         <div id="clock">00:00</div>
         <p class="pomodoroLengths">
             Session :
-            <input type="text" id="sessionLength"> minutes
+            <input type="number" step="1" min="0" max="60" id="sessionLength" placeholder="minutes">
         </p>
         <p class="pomodoroLengths">
             Break :
-            <input type="text" id="breakLength"> minutes
+            <input type="number" step="1" min="0" max="60" id="breakLength" placeholder="minutes">
         </p>
         <script type="text/javascript" src="clock.js"></script>
     </div>

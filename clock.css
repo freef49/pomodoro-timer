@@ -17,13 +17,16 @@ body{
 
 .pomodoroClock{
 	font-family: 'Lato', sans-serif;
+	text-align: center;
 }
 
 #clock{
-	font-family: 'Share Tech Mono', monospace;
-	font-size: 30vw;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 30vw;
     margin: 0 auto;
     width: 80vw;
+    padding-bottom: 4vh;
+    padding-top: 7vh;
 }
 .pomodoroButtons{
 	position: fixed;
@@ -43,11 +46,11 @@ body{
     margin: 0 -1.5px;
 }
 
-/* Buttons */
-
-.fa{
-	width: 50%;
+input{
+	width: 80px;
 }
+
+/* Buttons */
 
 #start{
 	background-color: #2ECC40;
