@@ -27,12 +27,14 @@
     width: 100vw;
 }
 .pomodoroButtons > button{
-    width: 33.33333333333333%;
+    width: calc(100vw/3);
+    height: calc(100vw/3);
+    max-height: 20vh;
     background: none;
     background-color: yellowgreen;
     padding-left: 0;
     padding-right: 0;
     border: none;
-    outline:none;
+    outline: none;
     margin: 0 -1.5px;
 }
